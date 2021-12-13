@@ -1,0 +1,3 @@
+# Post Your Opinon
+
+It is a web application based on the functionalities of popular social media site Facebook. This application allows user to create their own posts, like and dislike the post, comment, reply to the comments, and like or dislike the comments. The main purpose of the application is to use the asynchronous JavaScript features or API like XHR and Fetch, that allows the user to perform all the tasks without the need to refresh the page. But, since there is no login/signup features, any user can see any posts, and perform above features, which can be an upgrade to the application.
