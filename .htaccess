@@ -1,8 +1,8 @@
 RewriteEngine On
 
-RewriteRule ^/?$ opinion.html
-RewriteRule ^opinion?$ earrings.html
-RewriteRule ^json?$ opinion.json
+RewriteRule ^/?$ index.php
+RewriteRule ^index?$ index.php
+RewriteRule ^json?$ composer.json
 
 # Prevent viewing of .htaccess file
 <Files .htaccess>
