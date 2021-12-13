@@ -1,0 +1,34 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+DROP DATABASE IF EXISTS opinion;
+CREATE DATABASE opinion CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE opinion;
+
+CREATE TABLE post (
+	id int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	username varchar(50),
+	title varchar(50),
+	text text NOT NULL,
+	image varchar(255),
+	post_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	likes int(11) NOT NULL DEFAULT 0 ,
+	reply_to int DEFAULT null,
+	FOREIGN KEY(reply_to) REFERENCES post(id)
+);
+
+
+INSERT INTO post(`username`, `title`, `text`, `post_date`, `likes`, `reply_to`)
+VALUES 
+("Sarkar", "New Member", "Hello everyone! I'm new to this page and would love to hear your opinions and share mines.","2020-10-11 09:30:01", '5', null),
+
+("Jonathan", "", "Same here brother!", "2020-10-02 09:45:01", '6', '1'),
+
+("", "Thought!", "Hi guys! I would personally love to share my opinions but without revealing my identity. I will share my thoughts, hope you like them.", "2020-09-30 16:30:01", '7', null),
+
+("Badree", "Greetings!", "My warm greeting to everyone. Hope this page will help everyone to share thier open thoughts and opinions about any personal, social, family, and many more topics, and receive reviews on them. So, I hope everyone will be more generous and kind to everyone thoughts and react them in a proper manner. Cheers!", "2020-10-05 22:12:01", '1', null) ;
+
+
+COMMIT;

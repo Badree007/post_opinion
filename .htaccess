@@ -1,0 +1,15 @@
+RewriteEngine On
+
+RewriteRule ^/?$ opinion.html
+RewriteRule ^opinion?$ earrings.html
+RewriteRule ^json?$ opinion.json
+
+# Prevent viewing of .htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+# Prevent directory listings
+Options All -Indexes
+

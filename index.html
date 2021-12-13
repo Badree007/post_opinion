@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>Opinions</title>
+	<link rel="stylesheet" href="css/styling.css">
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+	<header id = 'head'>
+		<h1>Opinion</h1>
+		<button id="post_review">Post</button>
+		<button id="switch_theme" class="theme"></button>
+		
+		<div id="myModal" class="modal">
+
+		  <!-- Post Review content -->
+		  <div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>Post Your Mindful Thoughts</h2>
+			<p id="error">* Required field!</p><br/>
+			
+			<form name="postForm" id="postForm" action="api/post.api" method="Post" enctype="multipart/form-data">
+				<input type="text" id="name" name="name" placeholder="Your Name" /><br><br>
+				<input type="text" id="title" name="title" placeholder="Title of Post" /><br><br>
+				<textarea id="text" name="text" placeholder="Write your opinion....*" required></textarea><br/>
+				<label for="image">Attach your image: </label>
+				<input type="file"  name="file" id="file" onchange="getImage()" accept="image/*"/><br/><br/>
+				<button type="submit" id="post" name="submit" disabled="disabled">Post</button>
+			</form>
+			
+		  </div>
+
+		</div>		
+	</header>
+	
+	<main>
+		<div id="space" class="space_before"></div>
+		<h1>Top Opinions</h1>
+		<div id="app">
+			<!--ll the posts goes in here*/-->
+		</div>
+	</main>
+	
+	<footer>
+		<div id="footer">
+			<p><small>Copyright &copy 2020 <a href="mailto:badreedahal1@gmail.com">Badree Dahal</a>. All Rights Reserved.</small></p>
+		</div>
+	</footer>
+	
+	<script src="scripts/scripts.js">			
+	</script>
+
+</body>
+</html>
