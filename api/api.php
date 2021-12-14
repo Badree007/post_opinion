@@ -8,15 +8,18 @@
 		// private $dBName = "opinion";
 
 		//Get Heroku ClearDB connection information
-		private $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-		private $cleardb_server = $cleardb_url["host"];
-		private $cleardb_username = $cleardb_url["user"];
-		private $cleardb_password = $cleardb_url["pass"];
-		private $cleardb_db = substr($cleardb_url["path"],1);
-		private $active_group = 'default';
-		private $query_builder = TRUE;
+		private $cleardb_url;
+		private $cleardb_server;
+		private $cleardb_username;
+		private $cleardb_password;
+		private $cleardb_db;
 		  
 		function __construct(){
+			$this->cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+			$this->cleardb_server = $this->cleardb_url["host"];
+			$this->cleardb_username = $this->cleardb_url["user"];
+			$this->cleardb_password = $this->cleardb_url["pass"];
+			$this->cleardb_db = substr($this->cleardb_url["path"],1);
 			$this->dBConnect();
 		}
 
