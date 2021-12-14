@@ -1,18 +1,28 @@
 <?php
-	
+
 	class API_Handle {
 		private $conn;
-		private $dBServername = "localhost";
-		private $dBUsername = "root";
-		private $dBPassword = "";
-		private $dBName = "opinion";
+		// private $dBServername = "localhost";
+		// private $dBUsername = "root";
+		// private $dBPassword = "";
+		// private $dBName = "opinion";
+
+		//Get Heroku ClearDB connection information
+		private $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+		private $cleardb_server = $cleardb_url["host"];
+		private $cleardb_username = $cleardb_url["user"];
+		private $cleardb_password = $cleardb_url["pass"];
+		private $cleardb_db = substr($cleardb_url["path"],1);
+		private $active_group = 'default';
+		private $query_builder = TRUE;
 		  
 		function __construct(){
 			$this->dBConnect();
 		}
 
 		function dBConnect(){
-			$this->conn = mysqli_connect($this->dBServername, $this->dBUsername, $this->dBPassword,$this->dBName);
+			//connect to the database
+			$this->conn = mysqli_connect($this->cleardb_server, $this->cleardb_username, $this->cleardb_password, $this->cleardb_db);
 		}
 		
 		function fetchData() {
